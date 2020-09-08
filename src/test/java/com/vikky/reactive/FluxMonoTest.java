@@ -10,7 +10,7 @@ public class FluxMonoTest {
   public void fluxTest() {
     Flux<String> stringFlux =
         Flux.just("Spring boot", "Spring Data", "Spring Security")
-            .concatWith(Flux.error(new RuntimeException("I dont know but something went wrong")))
+           // .concatWith(Flux.error(new RuntimeException("I dont know but something went wrong")))
             .log();
 
     stringFlux.subscribe(i -> System.out.println(i), e -> System.err.println(e));
@@ -20,7 +20,7 @@ public class FluxMonoTest {
   public void testFluxWithError() {
     Flux<String> stringFlux =
         Flux.just("Spring boot", "Spring Data", "Spring Security")
-            .concatWith(Flux.error(new RuntimeException("I dont know but something went wrong")))
+           // .concatWith(Flux.error(new RuntimeException("I dont know but something went wrong")))
             .log();
 
     StepVerifier.create(stringFlux)
@@ -31,4 +31,5 @@ public class FluxMonoTest {
         //.expectErrorMessage("I dont know but something went rong");
     // .verifyComplete();
   }
+
 }
