@@ -107,7 +107,8 @@ public class FactoryMethods {
     Flux<String> stringFlux =
         Flux.fromIterable(Arrays.asList("A", "B", "C", "D", "E", "F", "G"))
             .window(3)
-            .flatMap((s) -> s.map(this::convertToList).subscribeOn(parallel()))
+            .flatMap((s) -> s.map(this::convertToList)
+                    .subscribeOn(parallel()))
             .flatMap(s -> Flux.fromIterable(s))
             .log();
 
