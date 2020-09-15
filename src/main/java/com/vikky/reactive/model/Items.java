@@ -13,8 +13,8 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @AllArgsConstructor
 public class Items {
     @Id
-    private String Id;
-    private String Item;
+    private String id;
+    private String item;
     private Double price;
 
 }
